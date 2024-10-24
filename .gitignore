@@ -1,0 +1,8 @@
+# SERVER IGNORE
+backend/node_modules
+backend/.env
+backend/dist
+backend/src/database/vote-system.db
+# WEBSITE IGNORE
+frontend/node_modules
+frontend/.env
