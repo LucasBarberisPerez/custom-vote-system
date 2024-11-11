@@ -1,0 +1,61 @@
+@use "../../styles/_colors.scss" as *;
+
+section {
+  width: 100%;
+  padding: 1rem;
+}
+
+section.about {
+  display: flex;
+ flex-direction: column;
+  gap: 0.5rem;
+
+  p {
+    text-wrap: pretty;
+  }
+
+  
+}
+
+section.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+    text-wrap: pretty;
+  }
+  div.feature_description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+  }
+}
+
+
+div.button_section {
+  width: 100%;
+  margin-top: 0.5rem;
+  justify-content: center;
+  align-self: center;
+  display: flex;
+  gap: 0.5rem;
+}
+a.button {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  border: 0.15rem solid $secondary-color;
+  background-color: $primary-color;
+  font-weight: 700;
+  color: black;
+  transition: all 0.2s ease;
+  &:hover {
+    cursor: pointer;
+    background-color: white;
+    scale: 1.05;
+  }
+}

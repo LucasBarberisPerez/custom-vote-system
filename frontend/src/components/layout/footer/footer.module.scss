@@ -1,0 +1,11 @@
+@use "../../../styles/colors.scss" as *;
+footer.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background-color: $primary-color;
+    user-select: none;
+}
+
