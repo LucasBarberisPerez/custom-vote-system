@@ -10,6 +10,6 @@ A --> D(Web Sockets)
 A --> G(Better-Sqlite3)
 A --> B
 B[React]
-B --> E(Tailwind CSS)
+B --> E(Sass)
 F[Typescript] --> A
 ```

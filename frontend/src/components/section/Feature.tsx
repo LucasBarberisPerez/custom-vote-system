@@ -13,7 +13,7 @@ export default function Feature() {
         </ul>
       </div>
       <div className={styles.button_section}>
-        <a href="/polls" className={styles.button}>Get started</a>
+        <a href="/demo" className={styles.button}>Get started</a>
         <a href="https://github.com/LucasBarberisPerez/custom-vote-system" className={styles.button}>Source code</a>
       </div>
     </section>
