@@ -5,20 +5,28 @@ interface Props {
   options?: RequestInit;
 }
 
-export function useFetch({ url, options }: Props) {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [data, setData] = useState<any>(null);
+export function useFetch<T>({ url, options }: Props) {
+  const [isFetching, setisFetching] = useState<boolean>(true);
+  const [data, setData] = useState<T | null>(null);
   useEffect(() => {
-    setIsLoading(true);
     const fetchData = async () => {
-      setIsLoading(true);
-      const response = await fetch(url, options);
-      const json = await response.json();
-      setData(json);
-      setIsLoading(false);
+      if (!isFetching) {
+        setisFetching(true);
+      }
+      try {
+        const response = await fetch(url, options);
+        const json = await response.json();
+        setData(json as T);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setisFetching(false);
+      }
     };
-    fetchData();
+    setTimeout(() => {
+      fetchData();
+    }, 2000);
   }, []);
 
-  return { isLoading, data };
+  return { isFetching, data };
 }

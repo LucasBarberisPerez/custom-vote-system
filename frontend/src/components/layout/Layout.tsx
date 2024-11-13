@@ -1,7 +1,7 @@
 import "../../styles/global.scss";
 import Header from "./header/Header";
 import Main from "./main/Main";
-//import Footer from "./footer/Footer";
+import Footer from "./footer/Footer";
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <Header />
       <Main>{children}</Main>
-    {/* <Footer/>*/}
+      <Footer />
     </>
   );
 }

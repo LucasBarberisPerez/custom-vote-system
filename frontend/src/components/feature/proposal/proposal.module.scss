@@ -1,0 +1,52 @@
+@use "../../../styles/_colors.scss" as *;
+@use "../../../styles/_breakpoints.scss" as *;
+section.proposal_section {
+  display: grid;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+div.proposal_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  @media (min-width: $breakpoint-mobile) {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+div.proposal_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #d6dadb49;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  gap: 1rem;
+  h3.proposal_title {
+    font-weight: bold;
+  }
+  p.proposal_desc {
+    text-wrap: pretty;
+  }
+  div.result_info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    span {
+      padding: 0.2rem;
+    }
+    span.favor {
+      background-color: $primary-color;
+      text-align: center;
+    }
+    span.against {
+      background-color: red;
+      text-align: center;
+    }
+  }
+}

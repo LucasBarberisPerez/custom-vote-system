@@ -1,0 +1,30 @@
+@use "../../styles/_colors.scss" as *;
+
+div.loader_container {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+  border-radius: 0.5rem ;
+}
+
+div.loader {
+  padding: 1rem;
+  border: 1rem solid #f3f3f3; /* Light grey */
+  border-top: 1rem solid $primary-color; /* Blue */
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
