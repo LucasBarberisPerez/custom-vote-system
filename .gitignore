@@ -6,3 +6,7 @@ backend/src/database/vote-system.db
 # WEBSITE IGNORE
 frontend/node_modules
 frontend/.env
+
+
+#ROOT IGNORE
+node_modules
