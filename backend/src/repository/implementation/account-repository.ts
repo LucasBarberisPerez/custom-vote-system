@@ -13,7 +13,6 @@ export class AccountRepository implements IAccountRepository {
       throw new Error(`Error getting account data for username ${username}: ${error}`);
     }
   }
-
   async create(account: Account): Promise<void> {
     const { username, password, registerDate, userType } = account;
     const sql =
@@ -22,6 +21,14 @@ export class AccountRepository implements IAccountRepository {
       await this.database.execute(sql, [username, password, registerDate, userType]);
     } catch (error) {
       console.error("Error creating account:", error);
+    }
+  }
+  async getAll(): Promise<AccountDTO[]> {
+    const sql = "SELECT * FROM ACCOUNT;";
+    try {
+      return await this.database.query<AccountDTO>(sql);
+    } catch (error) {
+      throw new Error(`Error getting all accounts: ${error}`);
     }
   }
 }

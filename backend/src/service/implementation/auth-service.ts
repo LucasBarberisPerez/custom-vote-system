@@ -39,7 +39,7 @@ export class AuthService implements IAuthService {
     console.log(password, account.PASSWORD);
     if (!account) return false;
     const isDataCorrect = await bcrypt.compare(password, account.PASSWORD);
-    console.log("isDataCorrect",isDataCorrect)
+    console.log("isDataCorrect", isDataCorrect);
     return isDataCorrect;
   }
   async logout(res: Response): Promise<void> {

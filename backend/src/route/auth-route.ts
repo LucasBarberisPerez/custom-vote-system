@@ -20,7 +20,6 @@ authRouter.post("/authenticate", multer().none(), (req, res) =>
 );
 authRouter.post("/logout", multer().none(), (req, res) => authController.logout(req, res));
 
+authRouter.get("/accounts", (req, res) => authController.getAll(req, res));
 
 export default authRouter;
-
-

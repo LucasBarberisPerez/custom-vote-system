@@ -59,4 +59,15 @@ export class AuthController implements IAuthController {
       }
     }
   }
+
+  async getAll(req: Request, res: Response): Promise<void> {
+    try {
+      const accounts = await this.accountRepository.getAll();
+      res.status(200).json(accounts);
+    } catch (error) {
+      if (error instanceof Error) {
+        res.status(500).json({ error: error.name, msg: error.message });
+      }
+    }
+  }
 }
