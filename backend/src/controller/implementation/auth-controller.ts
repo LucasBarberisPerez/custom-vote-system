@@ -12,10 +12,11 @@ export class AuthController implements IAuthController {
     try {
       const { username, password } = req.body;
       const account = await this.accountRepository.getByUsername(username);
+
       if (!account) {
         throw new Error("incorrect username or password");
       }
-      
+
       const isAuthenticated = await this.authService.login(password, account);
 
       if (!isAuthenticated) {
@@ -23,18 +24,35 @@ export class AuthController implements IAuthController {
       }
       const refreshToken = this.authService.createRefreshToken(account);
       const accessToken = this.authService.createAccessToken(account);
+
       res.cookie("refresh_token", refreshToken, {
         httpOnly: true,
         sameSite: "none",
         secure: true,
         maxAge: 30 * 24 * 60 * 60 * 1000,
       });
+
       res.cookie("access_token", accessToken, {
         httpOnly: true,
         sameSite: "none",
         secure: true,
         maxAge: 2 * 60 * 60 * 1000,
       });
+
+      res.cookie(
+        "authenticate",
+        JSON.stringify({
+          username: username,
+          authAt: Date.now().toLocaleString,
+          userType: account.USER_TYPE,
+        }),
+        {
+          httpOnly: false,
+          sameSite: "strict",
+          maxAge: 2 * 60 * 60 * 1000,
+        }
+      );
+
       res.status(200).json({ msg: "User authenticated successfully" });
     } catch (error) {
       if (error instanceof Error) {
@@ -44,17 +62,15 @@ export class AuthController implements IAuthController {
   }
 
   async logout(req: Request, res: Response): Promise<void> {
+    console.log(req.cookies);
     try {
-      const accessToken = req.cookies("access_token");
-      const refreshToken = req.cookies("refresh_token");
-      if (!accessToken || !refreshToken) {
-        throw new Error("No cookies found");
-      }
-      res.clearCookie("refreshToken");
-      res.clearCookie("accessToken");
+      res.clearCookie("refresh_token", { httpOnly: true, sameSite: "none", secure: true });
+      res.clearCookie("access_token", { httpOnly: true, sameSite: "none", secure: true });
+      res.clearCookie("authenticate");
       res.status(200).json({ msg: "User logged out successfully" });
     } catch (error) {
       if (error instanceof Error) {
+        console.error(error);
         res.status(500).json({ error: error.name, msg: error.message });
       }
     }

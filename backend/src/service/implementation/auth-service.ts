@@ -1,5 +1,5 @@
 import { IAuthService } from "../interface/auth-service.interface";
-import bcrypt from "bcrypt";
+//import bcrypt from "bcrypt"; -- this is for encrypted passwords in db
 import { AccountDTO } from "../../model/account.model";
 import jwt from "jsonwebtoken";
 import { Response } from "express";
@@ -35,11 +35,9 @@ export class AuthService implements IAuthService {
     }
   }
   async login(password: string, account: AccountDTO): Promise<boolean> {
-    console.log("Tring to login");
-    console.log(password, account.PASSWORD);
     if (!account) return false;
-    const isDataCorrect = await bcrypt.compare(password, account.PASSWORD);
-    console.log("isDataCorrect", isDataCorrect);
+    //const isDataCorrect = await bcrypt.compare(password, account.PASSWORD); -- this is for encrypted passwords in db
+    const isDataCorrect = password === account.PASSWORD;
     return isDataCorrect;
   }
   async logout(res: Response): Promise<void> {

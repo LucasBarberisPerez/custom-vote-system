@@ -6,10 +6,10 @@ CREATE TABLE IF NOT EXISTS ACCOUNT (
 );
 
 INSERT INTO ACCOUNT (USERNAME, PASSWORD, REGISTER_DATE, USER_TYPE) VALUES
-('admin', '$2a$10$o39vYF344.UO00cwkC.nJONR4Dg4YPx76i2/84fqmDv76djTzlnei', '2024-01-01', 'resident'),
-('jane_smith', '$2a$10$JvFXC5W0BIsjK8yfiqCB5uagpKuQuUnhSIs1ZSKpoC/k4BvmyMhtG', '2024-01-05', 'helper'),
-('alex_jones', '$2a$10$JvFXC5W0BIsjK8yfiqCB5uagpKuQuUnhSIs1ZSKpoC/k4BvmyMhtG', '2024-01-10', 'resident'),
-('john_doe', '$2a$10$JvFXC5W0BIsjK8yfiqCB5uagpKuQuUnhSIs1ZSKpoC/k4BvmyMhtG', '2024-01-11', 'resident');
+('lucas_silva', '123456', '2024-01-01', 'resident'),
+('jane_smith', '123456', '2024-01-05', 'helper'),
+('alex_jones', '123456', '2024-01-10', 'helper'),
+('john_doe', '123456', '2024-01-11', 'resident');
 
 CREATE TABLE IF NOT EXISTS PROPOSAL (
   ID INTEGER PRIMARY KEY AUTOINCREMENT,

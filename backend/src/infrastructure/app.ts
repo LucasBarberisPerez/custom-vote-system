@@ -6,6 +6,8 @@ import morgan from "morgan";
 import proposalRouter from "../route/proposal-route";
 import authRouter from "../route/auth-route";
 import AppConfig from "./app.config";
+import cookieParser from "cookie-parser";
+
 
 //import { Server } from "socket.io";
 //TODO: Implement socket.io server for vote room (optional).
@@ -26,6 +28,7 @@ export class App {
 
   private initModules() {
     this.app.use(express.json());
+    this.app.use(cookieParser());
     this.app.use(morgan("combined"));
     this.app.use(
       cors({ origin: AppConfig.getOriginUrl(), credentials: true, optionsSuccessStatus: 200 })
