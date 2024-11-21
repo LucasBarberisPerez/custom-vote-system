@@ -1,5 +1,6 @@
 export interface AccountData {
-    id: number;
-    email: string;
-    password: string;
+    USERNAME: string;
+    PASSWORD: string;
+    USER_TYPE: string;
+    REGISTER_DATE: string;
 }

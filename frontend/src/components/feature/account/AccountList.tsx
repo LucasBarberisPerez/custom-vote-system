@@ -1,13 +1,28 @@
-import { useState } from "react";
-import { AccountService } from "../../../lib/service/AccountService";
+import styles from "./account.module.scss";
+import { useFetch } from "../../../lib/hooks/useFetch";
+import { AccountData } from "../../../lib/model/Account";
+import Loading from "../../common/Loading";
+import Account from "./Account";
+
+
 
 //I know this is a crime, but I don't care this is a demo...
-export default async function AccountList() {
-  //TODO: Add account list
-  const [accountList, setAccountList] = useState<[]>([]);
-  const accountService = new AccountService();
-  const accList = await accountService.getAccountList();
-  setAccountList(accList);
-  console.log(AccountList);
-  return <div>{accountList}</div>;
+export default function AccountList() {
+  const { data, isFetching } = useFetch<AccountData[]>({ url: "/api/auth/accounts" });
+  return (
+    <section className={styles.account_section}>
+      <h2>Accounts</h2>
+      <p>
+        This is made for skip the register process, you can choose any account of the list to login
+      </p>
+
+      <div className={styles.account_container}>
+        {data?.map((account: AccountData, index: number) => (
+          <Account key={index} {...account} />
+        ))}
+      </div>
+      {isFetching && <Loading loadingText="Loading accounts..." />}
+      {!isFetching && !data && <h2>No accounts found</h2>}
+    </section>
+  );
 }

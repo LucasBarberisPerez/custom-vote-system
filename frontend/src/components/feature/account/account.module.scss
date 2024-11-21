@@ -1,0 +1,63 @@
+@use "../../../styles/colors.scss" as *;
+@use "../../../styles/breakpoints.scss" as *;
+section.account_section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  h2 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
+}
+
+div.account_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  max-height: 8rem;
+  overflow-y: scroll;
+
+  @media (min-width: $breakpoint-mobile) {
+    grid-template-columns: 1fr;
+    max-height: none;
+    overflow-y: hidden;
+  }
+}
+
+div.account_info {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f3f5f5;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  button {
+    place-self: center;
+    max-width: 90%;
+    background-color: $primary-color;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  @media (min-width: $breakpoint-mobile) {
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: left;
+    button {
+      place-self: normal;
+    }
+  }
+}

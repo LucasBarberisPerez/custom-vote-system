@@ -1,11 +1,48 @@
 @use "../../../styles/colors.scss" as *;
-footer.footer{
+footer.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: $primary-color;
+  user-select: none;
+  gap: 0.5rem;
+  button {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 1rem;
-    background-color: $primary-color;
-    user-select: none;
+    gap: 0.5rem;
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+    color: black;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  div.auth {
+    //scale the div when user is logged
+    &:has(svg.auth_icon_check) {
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    svg.auth_icon_close {
+      color: red;
+    }
+    svg.auth_icon_check {
+      color: green;
+    }
+  }
 }
-

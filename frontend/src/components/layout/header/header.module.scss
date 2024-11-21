@@ -1,7 +1,6 @@
 @use "../../../styles/colors.scss" as *;
 
 header.header {
-  width: 100%;
   position: sticky;
   display: flex;
   justify-content: center;
@@ -16,7 +15,6 @@ header.header {
 }
 
 div.header_section {
-  padding: 1rem;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   height: 100%;
@@ -27,11 +25,11 @@ div.header_section {
 }
 
 div.header_section h1 {
-  transition: transform 0.2s ease;
-  user-select: none;
+  padding: 0.2rem;
 }
 
 a.header_link {
+  padding: 0.2rem;
   display: flex;
   justify-content: center;
   align-items: center;

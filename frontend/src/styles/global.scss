@@ -2,7 +2,6 @@
 @use "../styles/_colors.scss" as *;
 @use "../styles/_fonts.scss" as *;
 
-
 :root {
   font-family: $font-roboto;
   background-color: $background-page-color;
@@ -12,21 +11,21 @@
   padding: 0;
   box-sizing: border-box;
 }
-#root{
+#root {
   min-height: 100vh;
+  max-height: 100vh;
   width: 100%;
   height: 100%;
   display: grid;
   gap: 0.5rem;
   grid-template-rows: auto 1fr auto;
 }
-main{
+main {
   display: flex;
   justify-content: start;
   align-items: center;
   flex-direction: column;
+  overflow: scroll;
 }
-
-
 
 @include responsive-font-sizes();

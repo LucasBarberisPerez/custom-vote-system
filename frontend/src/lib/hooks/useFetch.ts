@@ -23,9 +23,7 @@ export function useFetch<T>({ url, options }: Props) {
         setisFetching(false);
       }
     };
-    setTimeout(() => {
-      fetchData();
-    }, 2000);
+    fetchData();
   }, []);
 
   return { isFetching, data };
