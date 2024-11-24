@@ -12,7 +12,7 @@ interface AuthContextProviderProps {
 export const AuthContext = createContext<AuthContextType | null>(null);
 
 export default function AuthContextProvider({ children }: AuthContextProviderProps): JSX.Element {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   useEffect(() => {
     checkLogin();
   }, []);
