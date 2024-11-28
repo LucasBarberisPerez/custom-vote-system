@@ -1,12 +1,16 @@
 @use "../../../styles/_colors.scss" as *;
 @use "../../../styles/_breakpoints.scss" as *;
 section.proposal_section {
-  display: grid;
-  justify-content: center;
+  width: 80%;
+  display: flex;
   gap: 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 div.proposal_container {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.5rem;
@@ -41,7 +45,7 @@ div.proposal_info {
       padding: 0.2rem;
     }
     span.favor {
-      background-color: $primary-color;
+      background-color: #04aa6d;
       text-align: center;
     }
     span.against {

@@ -23,13 +23,9 @@ export default function Account({ USERNAME, PASSWORD, USER_TYPE }: AccountData) 
   };
   return (
     <div className={styles.account_info}>
-      <span>
-        <b>User:</b> {USERNAME}
-      </span>
-      <span>
-        <b>Type user:</b> {USER_TYPE}
-      </span>
-      <button onClick={handleClick}>Select User</button>
+      <span>{USERNAME}</span>
+      <span>{USER_TYPE}</span>
+      <button onClick={handleClick}>Select</button>
     </div>
   );
 }

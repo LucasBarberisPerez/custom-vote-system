@@ -18,7 +18,7 @@ export default function UserAuth() {
     return (
       <div className={styles.auth} onClick={handleLogout}>
         <FaCheck className={styles.auth_icon_check} />
-        <span >Logout</span>
+        <span >Click to logout</span>
         <FaUser />
       </div>
     );
@@ -27,7 +27,7 @@ export default function UserAuth() {
   return (
     <div className={styles.auth}>
       <IoMdClose className={styles.auth_icon_close} />
-      <span>Log in</span>
+      <span>Not logged</span>
       <FaUser />
     </div>
   );

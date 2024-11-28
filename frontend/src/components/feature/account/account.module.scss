@@ -8,9 +8,20 @@ section.account_section {
   gap: 0.5rem;
   h2 {
     text-align: center;
+    place-self: center;
   }
   p {
-    text-align: center;
+    place-self: center;
+  }
+  @media (min-width: $breakpoint-mobile) {
+    width: 80%;
+    h2 {
+      place-self: start;
+    }
+    p {
+      place-self: start;
+      text-align: left;
+    }
   }
 }
 
@@ -18,34 +29,28 @@ div.account_container {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.5rem;
-  max-height: 8rem;
-  overflow-y: scroll;
-
-  @media (min-width: $breakpoint-mobile) {
-    grid-template-columns: 1fr;
-    max-height: none;
-    overflow-y: hidden;
-  }
 }
 
 div.account_info {
+  width: 100%;
   text-align: center;
   display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  background-color: #f3f5f5;
+  background-color: #EEF0F0;
   border-radius: 0.5rem;
   padding: 1rem;
 
   button {
     place-self: center;
-    max-width: 90%;
-    background-color: $primary-color;
+    max-width: 100%;
+    background-color: $secondary-color;
+    color: #EEF0F0;
     border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
+    border-radius: 0.2rem;
+    padding: 0.4rem;
     cursor: pointer;
     font-weight: bold;
     transition: transform 0.2s ease;
@@ -54,10 +59,9 @@ div.account_info {
     }
   }
   @media (min-width: $breakpoint-mobile) {
-    grid-template-columns: 1fr 1fr 1fr;
-    text-align: left;
     button {
-      place-self: normal;
+      max-width: 70%;
     }
+    text-align: center;
   }
 }

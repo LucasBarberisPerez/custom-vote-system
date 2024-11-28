@@ -20,6 +20,18 @@ export default function AccountList() {
           login
         </p>
         <div className={styles.account_container}>
+          <div className={styles.account_info}>
+            <span>
+              <b>User</b> {}
+            </span>
+            <span>
+              <b>Authority</b> {}
+            </span>
+            <span>
+              <b>Action</b>
+            </span>
+          </div>
+          
           {data?.map((account: AccountData, index: number) => (
             <Account key={index} {...account} />
           ))}
